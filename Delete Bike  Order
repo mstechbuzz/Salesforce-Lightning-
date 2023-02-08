@@ -1,0 +1,14 @@
+trigger DeleteBikeOrder on Bike_Order__c (after Delete) {
+    List<Id> Ids=new List<Id>();
+    for(Bike_Order__c b:Trigger.old){
+        Ids.add(b.Bike__c);
+    }
+    List<Bike__c> bikes=[Select Id,Remaining_Quantity__c from Bike__c where Id in :Ids];
+    if(Trigger.isDelete && Trigger.isAfter){
+        for(Integer i=0;i<Trigger.old.size();i++){
+            bikes[i].Remaining_Quantity__c=bikes[i].Remaining_Quantity__c+Trigger.old[i].Quantity__c;
+        }
+        update bikes;
+    }
+
+}
