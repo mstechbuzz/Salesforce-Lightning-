@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable" >
+    <aura:handler name="BikeEvent" event="c:SearchEvent" action="{!c.doSearchEvent}"/>
+    <div>
+    <c:Header TagLine="Bike Explorer" message="Search Bike and Order Bike in easy way"/>
+    </div>
+    <div>
+        <c:BikeSearch/>
+    </div>
+	
+</aura:component>
