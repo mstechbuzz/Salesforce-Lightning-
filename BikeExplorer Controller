@@ -1,0 +1,8 @@
+({
+	doSearchEvent : function(component, event, helper) {
+        var searchParam=event.getParam('searchText');
+        console.log(searchParam);
+        
+		
+	}
+})
