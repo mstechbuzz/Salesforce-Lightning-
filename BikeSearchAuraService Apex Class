@@ -1,0 +1,16 @@
+public class BikeSearchAuraService {
+    @AuraEnabled
+    public static List<Bike__c> searchBike(String searchParam){
+        string likeParam='%'+searchParam+'%';
+        String query='';
+        if(searchParam!=null){
+            query='Select Id,Name,Bike_Type__c,Features__c,Frame_Size_in_Inches__c,Frame_Type__c,Gear__c,Price__c,Image__c,Remaining_Quantity__c,Total_Quantity__c from bike__c where Name like :likeParam Limit 8';
+        }
+        else{
+            query='Select Id,Name,Bike_Type__c,Features__c,Frame_Size_in_Inches__c,Frame_Type__c,Gear__c,Price__c,Image__c,Remaining_Quantity__c,Total_Quantity__c from bike__c';
+        }
+        List<Bike__c> listBike=Database.query(query);
+        return listBike;
+    }
+
+}
