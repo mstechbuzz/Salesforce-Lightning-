@@ -1,5 +1,6 @@
-<aura:component implements="force:appHostable" >
+<aura:component implements="force:appHostable" controller="BikeSearchAuraService" >
     <aura:handler name="BikeEvent" event="c:SearchEvent" action="{!c.doSearchEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doSearchEvent}"/>
     <div>
     <c:Header TagLine="Bike Explorer" message="Search Bike and Order Bike in easy way"/>
     </div>
