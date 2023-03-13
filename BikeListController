@@ -1,0 +1,32 @@
+({
+	showInfo : function(component, event, helper) {
+        var eventSource=event.getSource();
+        var bikeId=eventSource.get("v.name");
+        console.log(bikeId);
+        $A.createComponent("c:BikeDetails",
+                           {
+                               "bikeId":bikeId
+                           },
+                           function(bikeDetail,status,errorM){
+                               if(status==="SUCCESS" || status==="DRAFT"){
+                                   component.find('overlayLib').showCustomModal({
+                                       header:"Bike Detail",
+                                       body:bikeDetail,
+                                       footer:"@BikeBiz",
+                                       showCloseButton:true,
+                                       closeCallback:function(){
+                                           
+                                       }
+                                   })
+                               }
+                               else{
+                                   console.log(errorM);
+                               }
+                           }
+                          
+                          );
+    
+    
+    }
+       
+})
