@@ -1,0 +1,17 @@
+({
+	doOrder : function(component, event, helper) {
+        console.log(component.get('v.bikeId'));
+        var pageReference =component.find("navigation");
+        var pageReferenceNav={
+            type:"standard__component",
+            attributes:{
+                componentName:"c__CreateBikeOrder"
+            },
+            state:{
+                "c__bikeId":component.get('v.bikeId')
+            }
+        };
+        pageReference.navigate(pageReferenceNav);
+		
+	}
+})
