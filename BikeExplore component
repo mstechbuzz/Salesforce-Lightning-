@@ -1,11 +1,15 @@
-<aura:component implements="force:appHostable" controller="BikeSearchAuraService" >
+<aura:component implements="force:appHostable, lightning:isUrlAddressable" controller="BikeSearchAuraService" >
     <aura:handler name="BikeEvent" event="c:SearchEvent" action="{!c.doSearchEvent}"/>
     <aura:handler name="init" value="{!this}" action="{!c.doSearchEvent}"/>
+    <aura:attribute name="bikeList" type="Object"/>
     <div>
     <c:Header TagLine="Bike Explorer" message="Search Bike and Order Bike in easy way"/>
     </div>
     <div>
         <c:BikeSearch/>
+    </div>
+    <div>
+        <c:BikeListComponent bikeList="{!v.bikeList}"/>
     </div>
 	
 </aura:component>
