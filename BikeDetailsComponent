@@ -1,0 +1,19 @@
+<aura:component >
+    <aura:attribute name="bikeId" type="String"/>
+    <lightning:navigation aura:id="navigation"/>
+    
+    <div class="slds-p-around_small">
+        <lightning:recordForm
+                             recordId="{!v.bikeId}"
+                              objectApiName="Bike__c"
+                              layoutType="Full"
+                              columns="2"
+                              mode="readonly"
+                              
+                              />
+    </div>
+    <div class="slds-p-around_small">
+        <lightning:button value="Order Now" label="Order Now" variant="brand" onclick="{!c.doOrder}"/>
+    </div>
+	
+</aura:component>
